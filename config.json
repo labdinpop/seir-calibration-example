@@ -1,0 +1,46 @@
+{
+  "model": {
+    "population": 100000,
+    "initial_exposed": 40,
+    "initial_infectious": 10,
+    "initial_removed": 0,
+    "reporting_fraction": 0.5,
+    "dispersion": 50.0,
+    "days": 120,
+    "true_parameters": [0.32, 0.20, 0.10],
+    "parameter_bounds": [[0.18, 0.50], [0.10, 0.40], [0.06, 0.16]],
+    "ode_rtol": 1e-8,
+    "ode_atol": 1e-10
+  },
+  "genetic_algorithm": {
+    "population_size": 48,
+    "generations": 60,
+    "elite_count": 4,
+    "tournament_size": 3,
+    "mutation_probability": 0.3333333333333333,
+    "initial_mutation_scale": 0.12,
+    "final_mutation_scale": 0.015
+  },
+  "inverse_mlp": {
+    "training_parameters": 2048,
+    "validation_parameters": 512,
+    "observations_per_parameter": 2,
+    "hidden_layers": [64, 64],
+    "activation": "tanh",
+    "learning_rate": 0.001,
+    "batch_size": 128,
+    "alpha": 0.0001,
+    "maximum_epochs": 400,
+    "patience": 35,
+    "minimum_improvement": 0.00001
+  },
+  "surrogate": {
+    "initial_design": 32,
+    "iterations": 64,
+    "lcb_weight": 2.0,
+    "candidate_pool": 2048,
+    "local_candidates": 512,
+    "hyperparameter_interval": 8,
+    "gp_alpha": 0.000001
+  }
+}

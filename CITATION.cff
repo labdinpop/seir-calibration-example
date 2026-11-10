@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+message: "If you use this numerical illustration, please cite this software and acknowledge the accompanying review."
+type: software
+title: "Numerical SEIR illustration: genetic optimisation, inverse learning, and surrogate calibration"
+authors:
+  - family-names: Schimit
+    given-names: Pedro H. T.
+  - family-names: Sergio
+    given-names: Abimael R.
+  - family-names: Fontoura
+    given-names: Marco A. R.
+repository-code: "https://github.com/labdinpop/seir-calibration-example"
+url: "https://github.com/labdinpop/seir-calibration-example"
+license: MIT
+keywords:
+  - SEIR
+  - epidemic modelling
+  - parameter estimation
+  - genetic algorithm
+  - inverse learning
+  - Gaussian process
+abstract: "A didactic comparison of three parameter estimation procedures using a common SEIR model and synthetic observations."

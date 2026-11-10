@@ -1,0 +1,166 @@
+{
+  "configuration": {
+    "model": {
+      "population": 100000,
+      "initial_exposed": 40,
+      "initial_infectious": 10,
+      "initial_removed": 0,
+      "reporting_fraction": 0.5,
+      "dispersion": 50.0,
+      "days": 120,
+      "true_parameters": [
+        0.32,
+        0.2,
+        0.1
+      ],
+      "parameter_bounds": [
+        [
+          0.18,
+          0.5
+        ],
+        [
+          0.1,
+          0.4
+        ],
+        [
+          0.06,
+          0.16
+        ]
+      ],
+      "ode_rtol": 1e-08,
+      "ode_atol": 1e-10
+    },
+    "genetic_algorithm": {
+      "population_size": 48,
+      "generations": 60,
+      "elite_count": 4,
+      "tournament_size": 3,
+      "mutation_probability": 0.3333333333333333,
+      "initial_mutation_scale": 0.12,
+      "final_mutation_scale": 0.015
+    },
+    "inverse_mlp": {
+      "training_parameters": 2048,
+      "validation_parameters": 512,
+      "observations_per_parameter": 2,
+      "hidden_layers": [
+        64,
+        64
+      ],
+      "activation": "tanh",
+      "learning_rate": 0.001,
+      "batch_size": 128,
+      "alpha": 0.0001,
+      "maximum_epochs": 400,
+      "patience": 35,
+      "minimum_improvement": 1e-05
+    },
+    "surrogate": {
+      "initial_design": 32,
+      "iterations": 64,
+      "lcb_weight": 2.0,
+      "candidate_pool": 2048,
+      "local_candidates": 512,
+      "hyperparameter_interval": 8,
+      "gp_alpha": 1e-06
+    }
+  },
+  "clock_seed": 1794335173825645700,
+  "random_states": {
+    "evaluation": 2682289953,
+    "ga": 3820006176,
+    "training_design": 3708901382,
+    "training_noise": 2508791047,
+    "validation_design": 3666535047,
+    "validation_noise": 178882106,
+    "mlp": 2368697322,
+    "gp": 4137975637
+  },
+  "python": "3.12.10",
+  "packages": {
+    "numpy": "2.5.4",
+    "scipy": "1.18.1",
+    "scikit-learn": "1.9.1",
+    "matplotlib": "3.11.2",
+    "threadpoolctl": "3.8.0"
+  },
+  "source_sha256": "b51d6fdc747587e0e628eb4d8c98e79990651d1056628ce8bb1b81c5a83fde56",
+  "results": {
+    "Genetic algorithm": {
+      "parameters": [
+        0.29670962862242073,
+        0.24293534997931754,
+        0.0967367260933177
+      ],
+      "simulator_evaluations": 2688,
+      "nll": 559.0039398651991,
+      "mean_curve_rmse": 17.445617306680752,
+      "relative_parameter_error": [
+        -0.07278241055493524,
+        0.21467674989658764,
+        -0.0326327390668231
+      ]
+    },
+    "Inverse MLP": {
+      "parameters": [
+        0.29280159528773275,
+        0.25564561952419484,
+        0.10511012474307008
+      ],
+      "simulator_evaluations": 2560,
+      "training_examples": 4096,
+      "validation_examples": 1024,
+      "best_epoch": 126,
+      "validation_mse": 0.02809358175642629,
+      "raw_parameters": [
+        0.29280159528773275,
+        0.25564561952419484,
+        0.10511012474307008
+      ],
+      "projected_to_bounds": false,
+      "nll": 643.2416769017361,
+      "mean_curve_rmse": 68.88984205852637,
+      "relative_parameter_error": [
+        -0.08499501472583516,
+        0.27822809762097417,
+        0.051101247430700714
+      ]
+    },
+    "GP calibration": {
+      "parameters": [
+        0.3440241409642505,
+        0.20077361425931023,
+        0.11697746629628787
+      ],
+      "simulator_evaluations": 97,
+      "gp_messages": [
+        "The optimal value found for dimension 0 of parameter k1__constant_value is close to the specified upper bound 100.0. Increasing the bound and calling fit again may find a better value.",
+        "The optimal value found for dimension 1 of parameter k2__length_scale is close to the specified upper bound 3.0. Increasing the bound and calling fit again may find a better value.",
+        "The optimal value found for dimension 2 of parameter k2__length_scale is close to the specified upper bound 3.0. Increasing the bound and calling fit again may find a better value."
+      ],
+      "nll": 560.2821294950807,
+      "mean_curve_rmse": 14.83300838357827,
+      "relative_parameter_error": [
+        0.07507544051328276,
+        0.00386807129655109,
+        0.16977466296287866
+      ]
+    }
+  },
+  "scope": "One synthetic illustration; no repeated performance study or timing comparison.",
+  "counting": "Method evaluations include training/validation designs; final reconstruction adds one SEIR solve per method.",
+  "computation_source_sha256": "ccbf8845a39b1051726806383015dd72489aae15ae42d0ee9733202a4ab0e349",
+  "figure_update": {
+    "description": "Added a complete black frame to both plotting axes. Re-rendered the figure from saved observations, fitted curves, and estimates; no numerical computation was repeated.",
+    "source_sha256": "b51d6fdc747587e0e628eb4d8c98e79990651d1056628ce8bb1b81c5a83fde56",
+    "numerical_source_check": "The previous and current source are identical after excluding the plotting style change.",
+    "unchanged_csv_sha256": {
+      "estimates.csv": "9c356d5c7630f55d2a6c8719d2e264ffd9b91923f3ee0cca3b4864dee4ab7647",
+      "fitted_curves.csv": "7ff6a04f8a7be795dee42388584d02752098ea00d25cd2b2422b2a1c8ef4b3e8",
+      "ga_history.csv": "d5dcafa622c8744bf8e82f05a211fa8da27db4892a1cb6332df26d2e1fc195a8",
+      "gp_history.csv": "a9ebd1e74febc13520d13125d18846bc69fe5e1b093c33dc9cd9bda6aaa71a6b",
+      "mlp_history.csv": "e19c485d35177a57d5a4bb1eb2fd1a693e0f7aa2e7e03be50a1a6a7526f49f4b",
+      "synthetic_data.csv": "6cf05d8ce52a8fbb8718452bca0f6167c8b10d84c8e6b65b6449886d74050bd6"
+    }
+  }
+}
